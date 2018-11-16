@@ -129,7 +129,7 @@ class Connection {
 
     // Instance configuration methods
     // configure basic auth
-    void SetBasicAuth(const std::string& username,
+    RestClient::Connection& SetBasicAuth(const std::string& username,
                       const std::string& password);
 
     // set connection timeout to seconds

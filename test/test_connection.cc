@@ -261,3 +261,9 @@ TEST_F(ConnectionTest, TestInvalidProxy)
   EXPECT_EQ("Failed to query.", res.body);
   EXPECT_EQ(-1, res.code);
 }
+
+TEST_F(ConnectionTest, TestFluentInterface)
+{
+  RestClient::Connection foo = conn->SetBasicAuth("user", "passwd");
+  EXPECT_EQ(conn, foo) << "SetBasicAuth not fluent" << std::endl;
+}
