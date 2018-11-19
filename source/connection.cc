@@ -194,8 +194,8 @@ RestClient::Connection::SetNoSignal(bool no) {
  * @param password
  *
  */
-RestClient::Connection&
-RestClient::Connection::SetBasicAuth(const std::string& username,
+RestClient::Connection
+&RestClient::Connection::SetBasicAuth(const std::string& username,
                                      const std::string& password) {
   this->basicAuth.username = username;
   this->basicAuth.password = password;
