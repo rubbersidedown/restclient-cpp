@@ -264,6 +264,7 @@ TEST_F(ConnectionTest, TestInvalidProxy)
 
 TEST_F(ConnectionTest, TestFluentInterface)
 {
-  RestClient::Connection foo = conn->SetBasicAuth("user", "passwd");
-  EXPECT_EQ(conn, foo) << "SetBasicAuth not fluent" << std::endl;
+  RestClient::Connection * returned_conn;
+  returned_conn = &conn->SetBasicAuth("user", "passwd");
+  EXPECT_EQ(conn, returned_conn) << "SetBasicAuth not fluent" << std::endl;
 }
