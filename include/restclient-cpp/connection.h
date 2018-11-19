@@ -133,50 +133,50 @@ class Connection {
                       const std::string& password);
 
     // set connection timeout to seconds
-    void SetTimeout(int seconds);
+    RestClient::Connection &SetTimeout(int seconds);
 
     // set to not use signals
-    void SetNoSignal(bool no);
+    RestClient::Connection &SetNoSignal(bool no);
 
     // set whether to follow redirects, maxRedirects indicitng the maximum
     // number of redirects to follow
-    void FollowRedirects(bool follow, int maxRedirects = -1l);
+    RestClient::Connection &FollowRedirects(bool follow, int maxRedirects = -1l);
 
     // set custom user agent
     // (this will result in the UA "foo/cool restclient-cpp/VERSION")
-    void SetUserAgent(const std::string& userAgent);
+    RestClient::Connection &SetUserAgent(const std::string& userAgent);
 
     // set the Certificate Authority (CA) Info which is the path to file holding
     // certificates to be used to verify peers. See CURLOPT_CAINFO
-    void SetCAInfoFilePath(const std::string& caInfoFilePath);
+    RestClient::Connection &SetCAInfoFilePath(const std::string& caInfoFilePath);
 
     // set CURLOPT_SSLCERT
-    void SetCertPath(const std::string& cert);
+    RestClient::Connection &SetCertPath(const std::string& cert);
 
     // set CURLOPT_SSLCERTTYPE
-    void SetCertType(const std::string& type);
+    RestClient::Connection &SetCertType(const std::string& type);
 
     // set CURLOPT_SSLKEY. Default format is PEM
-    void SetKeyPath(const std::string& keyPath);
+    RestClient::Connection &SetKeyPath(const std::string& keyPath);
 
     // set CURLOPT_KEYPASSWD.
-    void SetKeyPassword(const std::string& keyPassword);
+    RestClient::Connection &SetKeyPassword(const std::string& keyPassword);
 
     // set CURLOPT_PROXY
-    void SetProxy(const std::string& uriProxy);
+    RestClient::Connection &SetProxy(const std::string& uriProxy);
 
     std::string GetUserAgent();
 
     RestClient::Connection::Info GetInfo();
 
     // set headers
-    void SetHeaders(RestClient::HeaderFields headers);
+    RestClient::Connection &SetHeaders(RestClient::HeaderFields headers);
 
     // get headers
     RestClient::HeaderFields GetHeaders();
 
     // append additional headers
-    void AppendHeader(const std::string& key,
+    RestClient::Connection &AppendHeader(const std::string& key,
                       const std::string& value);
 
 

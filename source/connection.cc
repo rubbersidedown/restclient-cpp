@@ -82,10 +82,11 @@ RestClient::Connection::GetInfo() {
  * @param value for the header field
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::AppendHeader(const std::string& key,
                                      const std::string& value) {
   this->headerFields[key] = value;
+  return *this;
 }
 
 /**
@@ -95,13 +96,14 @@ RestClient::Connection::AppendHeader(const std::string& key,
  *
  * @param headers to set
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetHeaders(RestClient::HeaderFields headers) {
 #if __cplusplus >= 201103L
   this->headerFields = std::move(headers);
 #else
   this->headerFields = headers;
 #endif
+  return *this;
 }
 
 /**
@@ -120,10 +122,11 @@ RestClient::Connection::GetHeaders() {
  * @param follow - boolean whether to follow redirects
  * @param maxRedirects - int indicating the maximum number of redirect to follow (-1 unlimited, default)
  */
-void
+RestClient::Connection &
 RestClient::Connection::FollowRedirects(bool follow, int maxRedirects) {
   this->followRedirects = follow;
   this->maxRedirects = maxRedirects;
+  return *this;
 }
 
 /**
@@ -133,9 +136,10 @@ RestClient::Connection::FollowRedirects(bool follow, int maxRedirects) {
  * @param userAgent - custom userAgent prefix
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetUserAgent(const std::string& userAgent) {
   this->customUserAgent = userAgent;
+  return *this;
 }
 
 /**
@@ -145,9 +149,10 @@ RestClient::Connection::SetUserAgent(const std::string& userAgent) {
  * verify the peer with. See CURLOPT_CAINFO
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetCAInfoFilePath(const std::string& caInfoFilePath) {
   this->caInfoFilePath = caInfoFilePath;
+  return *this;
 }
 
 /**
@@ -170,9 +175,10 @@ RestClient::Connection::GetUserAgent() {
  * @param seconds - timeout in seconds
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetTimeout(int seconds) {
   this->timeout = seconds;
+  return *this;
 }
 
 /**
@@ -182,9 +188,10 @@ RestClient::Connection::SetTimeout(int seconds) {
  * @param no - set to true switches signals off
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetNoSignal(bool no) {
   this->noSignal = no;
+  return *this;
 }
 
 /**
@@ -208,9 +215,10 @@ RestClient::Connection
  * @param path to certificate file
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetCertPath(const std::string& cert) {
   this->certPath = cert;
+  return *this;
 }
 
 /**
@@ -219,9 +227,10 @@ RestClient::Connection::SetCertPath(const std::string& cert) {
  * @param certificate type (e.g. "PEM" or "DER")
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetCertType(const std::string& certType) {
   this->certType = certType;
+  return *this;
 }
 
 /**
@@ -230,9 +239,10 @@ RestClient::Connection::SetCertType(const std::string& certType) {
  * @param path to key file
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetKeyPath(const std::string& keyPath) {
   this->keyPath = keyPath;
+  return *this;
 }
 
 /**
@@ -241,9 +251,10 @@ RestClient::Connection::SetKeyPath(const std::string& keyPath) {
  * @param key password
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetKeyPassword(const std::string& keyPassword) {
   this->keyPassword = keyPassword;
+  return *this;
 }
 
 /**
@@ -252,7 +263,7 @@ RestClient::Connection::SetKeyPassword(const std::string& keyPassword) {
  * @param proxy address with port number
  *
  */
-void
+RestClient::Connection &
 RestClient::Connection::SetProxy(const std::string& uriProxy) {
   std::string uriProxyUpper = uriProxy;
   // check if the provided address is prefixed with "http"
@@ -264,6 +275,7 @@ RestClient::Connection::SetProxy(const std::string& uriProxy) {
   } else {
     this->uriProxy = uriProxy;
   }
+  return *this;
 }
 
 /**
