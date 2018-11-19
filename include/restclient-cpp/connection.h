@@ -130,7 +130,7 @@ class Connection {
     // Instance configuration methods
     // configure basic auth
     RestClient::Connection &SetBasicAuth(const std::string& username,
-                      const std::string& password);
+                                         const std::string& password);
 
     // set connection timeout to seconds
     RestClient::Connection &SetTimeout(int seconds);
@@ -140,7 +140,8 @@ class Connection {
 
     // set whether to follow redirects, maxRedirects indicitng the maximum
     // number of redirects to follow
-    RestClient::Connection &FollowRedirects(bool follow, int maxRedirects = -1l);
+    RestClient::Connection &FollowRedirects(bool follow,
+                                            int maxRedirects = -1l);
 
     // set custom user agent
     // (this will result in the UA "foo/cool restclient-cpp/VERSION")
@@ -148,7 +149,8 @@ class Connection {
 
     // set the Certificate Authority (CA) Info which is the path to file holding
     // certificates to be used to verify peers. See CURLOPT_CAINFO
-    RestClient::Connection &SetCAInfoFilePath(const std::string& caInfoFilePath);
+    RestClient::Connection &SetCAInfoFilePath(
+      const std::string& caInfoFilePath);
 
     // set CURLOPT_SSLCERT
     RestClient::Connection &SetCertPath(const std::string& cert);
@@ -177,7 +179,7 @@ class Connection {
 
     // append additional headers
     RestClient::Connection &AppendHeader(const std::string& key,
-                      const std::string& value);
+                                         const std::string& value);
 
 
     // Basic HTTP verb methods
