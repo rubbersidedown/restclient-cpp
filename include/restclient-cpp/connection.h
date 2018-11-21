@@ -132,6 +132,9 @@ class Connection {
     void SetBasicAuth(const std::string& username,
                       const std::string& password);
 
+    RestClient::Connection &WithBasicAuth(const std::string& username,
+                                          const std::string& password);
+                                          
     // set connection timeout to seconds
     void SetTimeout(int seconds);
 
