@@ -37,3 +37,6 @@ usr
 
 # generated files
 include/restclient-cpp/version.h
+
+# vscode config
+.vscode
